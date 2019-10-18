@@ -2,6 +2,7 @@ package www.board;
 
 import static org.junit.Assert.*;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,15 @@ public class BoardServiceClientSpring {
 	@Autowired
 	BoardService boardService;
 	
+	@Test @Ignore
+	public void insertBoardTest() {
+		BoardVO vo = new BoardVO();
+		vo.setTitle("제목");
+		vo.setContent("내용");
+		vo.setWriter("작성자");
+		boardService.insertBoard(vo);
+	}
+	
 	@Test
 	public void getBoardTest() {
 		BoardVO vo = new BoardVO();
@@ -27,7 +37,8 @@ public class BoardServiceClientSpring {
 		System.out.println(resultVO);
 	}
 	
-	@Test
+	@Ignore @Test
+	// Ignore :해당 테스트는 수행안함
 	public void deleteBoardTest() {
 		BoardVO vo = new BoardVO();
 		vo.setSeq(2);

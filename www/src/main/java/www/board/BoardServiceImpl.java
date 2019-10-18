@@ -5,12 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import www.common.Log4jAdvice;
+import www.common.LogAdvice;
+
 @Service("boardService")
 public class BoardServiceImpl implements BoardService{
 	
 	@Autowired BoardDAO dao; // => factory.getBean()
 	// boardDAO를 Repository 설정해야 Autowired쓸 수 있다.
-	
 	
 	public void insertBoard(BoardVO vo) {
 		dao.insertBoard(vo);
